@@ -1,5 +1,5 @@
 app.controller('egliseController', function($scope, $http){
-	 
+	 $(document).ajaxStart(function() { Pace.restart(); });
 $scope.success = false;
 
 	$scope.error = false;

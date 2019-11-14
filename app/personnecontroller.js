@@ -1,4 +1,4 @@
-app.controller('personneController', function($scope, $http, $location, $window){
+app.controller('personneController', function($scope, $rootScope, $http, $location, $window){
 	 
 $scope.success = false;
 
@@ -7,6 +7,7 @@ $scope.success = false;
 	$scope.fetchData = function(){
 		$http.get('../php/fetch_personne.php').success(function(data){
 			$scope.personnesData = data;
+			$scope.test="testtttttt";
 		});
 	};
 
@@ -66,11 +67,14 @@ $scope.success = false;
 			
 			$scope.nom = data.nom;
 			//$scope.prenom = data.prenom;
+			$scope.test="Hello World";
 			//$scope.sexe = data.sexe;
 			$scope.hidden_id = id;
 			//$scope.modalTitle = 'Edit Data';
 			//$scope.submit_button = 'Edit';
 			//$scope.openModal();
+        	$rootScope.nom=data.nom;
+        	$rootScope.prenom=data.prenom;
 			$window.location.href = "detailpersonne.html?id="+id;
 		});
 	};
