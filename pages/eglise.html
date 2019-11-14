@@ -247,8 +247,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+        <li class="active"><a href="eglise.html"><i class="fa fa-link"></i> <span>Eglise</span></a></li>
+        <li><a href="personne.html"><i class="fa fa-link"></i> <span>Croyant</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
@@ -295,7 +295,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			
 			
 			<div align="right">
-				<button type="button" name="add_button" ng-click="addData()" class="btn btn-success">Ajouter</button>
+				<button type="button" name="add_button" ng-click="addData()" class="btn btn-primary">Ajouter</button>
 			</div>
 			<br />
 			<div class="table-responsive" style="overflow-x: unset;">
@@ -305,13 +305,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							<th>Nom</th>
 							<th>Edit</th>
 							<th>Delete</th>
+              
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="name in eglisesData">
 							<td>{{name.nomeglise}}</td>
-							<td><button type="button" ng-click="fetchSingleData(name.id)" class="btn btn-warning btn-xs">Modifier</button></td>
-							<td><button type="button" ng-click="deleteData(name.id)" class="btn btn-danger btn-xs">Supprimer</button></td>
+							<td><input type="image" type="image" src="../dist/img/edit.png"  height="28" width="28" ng-click="fetchSingleData(name.id)" /></td>
+							<td><input type="image" ng-click="deleteData(name.id)" type="image" src="../dist/img/delete.png"  height="28" width="28" /></td>
+              
 						</tr>
 					</tbody>
 				</table>

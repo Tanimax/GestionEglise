@@ -12,6 +12,9 @@ $validation_error = '';
 $nom = '';
 $prenom = '';
 $sexe = '';
+$occupation='';
+$niveau='';
+$statutmatrimonial='';
 
 
 
@@ -26,6 +29,9 @@ if($form_data->action == 'fetch_single_data')
 		$output['nom'] = $row['nom'];
 		$output['prenom'] = $row['prenom'];
 		$output['sexe'] = $row['sexe'];
+		$output['occupation'] = $row['occupation'];
+		$output['niveau'] = $row['niveau'];
+		$output['statutmatrimonial'] = $row['statutmatrimonial'];
 		
 		
 	}
@@ -78,12 +84,15 @@ else
 			$data = array(
 				':nom'		=>	$nom,
 				':prenom'		=>	$prenom,
-				':sexe'		=>	$sexe
+				':sexe'		=>	$sexe,
+				':occupation'  => $occupation,
+				':niveau'	=>$niveau,
+				':statutmatrimonial'	=>$statutmatrimonial
 			);
 			$query = "
 			INSERT INTO tbl_personne 
-				(nom, prenom, sexe) VALUES 
-				(:nom, :prenom, :sexe)
+				(nom, prenom, sexe, occupation, niveau, statutmatrimonial) VALUES 
+				(:nom, :prenom, :sexe, :occupation, :niveau, :statutmatrimonial)
 			";
 			$statement = $connect->prepare($query);
 			if($statement->execute($data))
@@ -97,6 +106,9 @@ else
 				':nom'		=>	$nom,
 				':prenom'		=>	$prenom,
 				':sexe'		=>	$sexe,
+				':occupation'		=>	$occupation,
+				':niveau'		=>	$niveau,
+				':statutmatrimonial'		=>	$statutmatrimonial,
 				':id'			=>	$form_data->id
 			);
 			$query = "
